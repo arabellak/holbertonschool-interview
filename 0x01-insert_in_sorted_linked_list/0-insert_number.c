@@ -2,8 +2,8 @@
 
 /**
  * insert_node - Inserts a number into a sorted singly linked list.
- * @head: .
- * @number: .
+ * @head: Head.
+ * @number: Number.
  * Return: Null if it failed or address of new node.
  */
 
@@ -15,13 +15,11 @@ listint_t *insert_node(listint_t **head, int number)
 		return (NULL);
 
 	tmp = *head;
-
 	baby_node = malloc(sizeof(listint_t));
-	if(baby_node == NULL) 
+	if (baby_node == NULL)
 		return (NULL);
 
 	baby_node->n = number;
-
 	if (*head == NULL)
 	{
 		baby_node->next = NULL;
@@ -33,7 +31,7 @@ listint_t *insert_node(listint_t **head, int number)
 		{
 			baby_node->next = tmp;
 			*head = baby_node;
-			return(*head);
+			return (*head);
 		}
 		else
 		{
@@ -45,18 +43,14 @@ listint_t *insert_node(listint_t **head, int number)
 				}
 				else
 				{
-					baby_node->next = tmp -> next;
+					baby_node->next = tmp->next;
 					tmp->next = baby_node;
 					break;
 				}
 			}
 			if (tmp->next == NULL)
-			{
 				return (add_nodeint_end(head, number));
-			}
 		}
 	}
     return (baby_node);
-}
-
 }
