@@ -31,21 +31,21 @@ listint_t *insert_node(listint_t **head, int number)
 		*head = baby_node;
 		return (*head);
 	}
-	else
+
+	while (tmp->next != NULL)
 	{
-		while (tmp->next != NULL)
+		if (tmp->n < number && tmp->next->n < number)
+			tmp = tmp->next;
+		else
 		{
-			if (tmp->n < number && tmp->next->n < number)
-				tmp = tmp->next;
-			else
-			{
-				baby_node->next = tmp->next;
-				tmp->next = baby_node;
-				break;
-			}
+			baby_node->next = tmp->next;
+			tmp->next = baby_node;
+			break;
 		}
-		if (tmp->next == NULL)
-			return (add_nodeint_end(head, number));
 	}
+
+	if (tmp->next == NULL)
+		return (add_nodeint_end(head, number));
+
 	return (baby_node);
 }
