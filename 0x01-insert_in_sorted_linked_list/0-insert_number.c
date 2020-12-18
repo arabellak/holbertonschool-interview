@@ -14,6 +14,7 @@ listint_t *insert_node(listint_t **head, int number)
 
 	if (head == NULL)
 		return (NULL);
+		
 	tmp = *head;
 	baby_node = malloc(sizeof(listint_t));
 	if (baby_node == NULL)
@@ -43,9 +44,6 @@ listint_t *insert_node(listint_t **head, int number)
 			break;
 		}
 	}
-
-	if (tmp->next == NULL)
-		return (add_nodeint_end(head, number));
 
 	return (baby_node);
 }
