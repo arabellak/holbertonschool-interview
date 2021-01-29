@@ -21,7 +21,7 @@ try:
             counter += 1
             if counter <= 10:
                 size += int(data[0])
-                codes = data[1]
+                code = data[1]
 
             if code in stat.keys():
                 stat[code] += 1
