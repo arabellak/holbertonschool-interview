@@ -28,12 +28,12 @@ try:
 
             if counter == 10:
                 print('File size: {}'.format(size))
-                for state_code, v in sorted(stat.items()):
+                for stat, v in sorted(stat.items()):
                     if v != 0:
-                        print('{}: {}'.format(state_code, v))
+                        print('{}: {}'.format(stat, v))
                 counter = 0
 finally:
     print('File size: {}'.format(size))
-    for state_code, v in sorted(stat.items()):
+    for stat, v in sorted(stat.items()):
         if v != 0:
-            print('{}: {}'.format(state_code, v))
+            print('{}: {}'.format(stat, v))
