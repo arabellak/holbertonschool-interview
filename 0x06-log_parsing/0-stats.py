@@ -21,19 +21,19 @@ try:
             counter += 1
             if counter <= 10:
                 size += int(data[0])
-                code = data[1]
+                codes = data[1]
 
             if code in stat.keys():
                 stat[code] += 1
 
             if counter == 10:
                 print('File size: {}'.format(size))
-                for stat, v in sorted(stat.items()):
+                for statCd, v in sorted(stat.items()):
                     if v != 0:
-                        print('{}: {}'.format(stat, v))
+                        print('{}: {}'.format(statCd, v))
                 counter = 0
 finally:
     print('File size: {}'.format(size))
-    for stat, v in sorted(stat.items()):
+    for statCd, v in sorted(stat.items()):
         if v != 0:
-            print('{}: {}'.format(stat, v))
+            print('{}: {}'.format(statCd, v))
