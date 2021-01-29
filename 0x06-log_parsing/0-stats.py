@@ -7,7 +7,7 @@ Script that reads stdin line by line and computes metrics
 import sys
 
 stat = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0,
-        404': 0, '405': 0, '500': 0}
+        '404': 0, '405': 0, '500': 0}
 
 counter = 0
 size = 0
