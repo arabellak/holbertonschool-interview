@@ -3,6 +3,7 @@
 Script that reads stdin line by line and computes metrics
 """
 
+
 import sys
 
 stat = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0,
