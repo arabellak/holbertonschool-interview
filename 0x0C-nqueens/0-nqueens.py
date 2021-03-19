@@ -43,14 +43,14 @@ def solution(board, col, n):
     """Solve the n queen problem using Backtracking"""
 
     if col == n:
-        printBoard(board)
+        printss(board)
         return True
 
     c = False
     for i in range(n):
         if isSafe(board, i, col, n):
             board[i][col] = 1
-            c = findSolution(board, col + 1, n) or c
+            c = solution(board, col + 1, n) or c
             board[i][col] = 0
     return c
 
@@ -71,4 +71,4 @@ if __name__ == "__main__":
         sys.exit(1)
 
     board = [[0 for i in range(n)] for j in range(n)]
-    findSolution(board, 0, n)
+    solution(board, 0, n)
