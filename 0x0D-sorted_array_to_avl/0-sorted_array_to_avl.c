@@ -1,21 +1,26 @@
 #include "binary_trees.h"
 
 /**
-* sorted_array_to_avl - Function that builds an AVL tree from an array
-* @array: is a pointer to the first element of the array to be converted
-* @size: is the number of element in the array
-* Return: a pointer to the root node of the created AVL tree, otherwise NULL
+* baby_node - Function to create a new node
+* @parent: is a ponter to the array
+* @n: size of the array
+* Return: the pointer of the node, otherwise NULL
 */
-
-avl_t *sorted_array_to_avl(int *array, size_t size)
+avl_t *baby_node(avl_t *parent, size_t n)
 {
-	avl_t *root;
+	avl_t *new;
 
-	if (!array || !size)
+	new = malloc(sizeof(avl_t));
+
+	if (!new)
 		return (NULL);
 
-	root = insert(array, 0, size - 1, NULL);
-	return (root);
+	new->n = n;
+	new->left = NULL;
+	new->right = NULL;
+	new->parent = parent;
+
+	return (new);
 }
 
 
@@ -50,24 +55,19 @@ avl_t *insert(int *array, size_t start, size_t end, avl_t *parent)
 }
 
 /**
-* baby_node - Function to create a new node
-* @parent: is a ponter to the array
-* @n: size of the array
-* Return: the pointer of the node, otherwise NULL
+* sorted_array_to_avl - Function that builds an AVL tree from an array
+* @array: is a pointer to the first element of the array to be converted
+* @size: is the number of element in the array
+* Return: a pointer to the root node of the created AVL tree, otherwise NULL
 */
-avl_t *baby_node(avl_t *parent, size_t n)
+
+avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-	avl_t *new;
+	avl_t *root;
 
-	new = malloc(sizeof(avl_t));
-
-	if (!new)
+	if (!array || !size)
 		return (NULL);
 
-	new->n = n;
-	new->left = NULL;
-	new->right = NULL;
-	new->parent = parent;
-
-	return (new);
+	root = insert(array, 0, size - 1, NULL);
+	return (root);
 }
