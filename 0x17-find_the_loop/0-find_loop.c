@@ -13,31 +13,30 @@
 
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *tmp_quick, *tmp_slow;
+	listint_t *quick, *slow;
 
 	if (head == NULL)
 	{
 		return (NULL);
 	}
 
-	tmp_quick = head;
-	tmp_slow = head;
+	quick = head;
+	slow = head;
 
-	while (tmp_quick != NULL tmp_quick->next != NULL
-	&& tmp_quick->next->next != NULL)
+	while (quick != NULL && quick->next != NULL && quick->next->next != NULL)
 	{
-		tmp_slow = tmp_slow->next;
-		tmp_quick = tmp_quick->next->next;
+		slow = slow->next;
+		quick = quick->next->next;
 
-		if (tmp_slow == tmp_quick)
+		if (slow == quick)
 		{
-			tmp_slow = head;
-			while (tmp_slow != tmp_quick)
+			slow = head;
+			while (slow != quick)
 			{
-				tmp_slow = tmp_slow->next;
-				tmp_quick = tmp_quick->next;
+				slow = slow->next;
+				quick = quick->next;
 			}
-			return (tmp_quick);
+			return (quick);
 		}
 	}
 	return (NULL);
