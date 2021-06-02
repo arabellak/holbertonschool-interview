@@ -20,7 +20,11 @@ listint_t *find_listint_loop(listint_t *head)
 		return (NULL);
 	}
 
-	while (tmp_quick->next != NULL && tmp_quick->next->next != NULL)
+	tmp_quick = head;
+	tmp_slow = head;
+
+	while (tmp_quick != NULL tmp_quick->next != NULL
+	&& tmp_quick->next->next != NULL)
 	{
 		tmp_slow = tmp_slow->next;
 		tmp_quick = tmp_quick->next->next;
